@@ -17,6 +17,7 @@ span {
   padding: 5px;
   margin-bottom: 0px;
   padding: 5px;
+  text-transform: capitalize;
 }
 .card {
   display: flex;

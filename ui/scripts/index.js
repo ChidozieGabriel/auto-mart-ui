@@ -1,13 +1,28 @@
-const viewBtns = document.querySelectorAll('[data-car="order"]');
-viewBtns.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    window.location.href = './purchaseorder.html';
-  });
+import Api from './utils/Api.js';
+import FormHandler from './utils/FormHandler.js';
+import CarHandler from './utils/CarHandler.js';
+import DOMHandler from './utils/DOMHandler.js';
+
+const api = new Api();
+const postBtn = document.querySelector('[data-button="post"]');
+const filter = document.querySelector('[data-filter="form"]');
+const filterFormHandler = new FormHandler(filter);
+
+DOMHandler.setUser();
+filterFormHandler.onSubmit((data) => {
+  console.log('data:', data);
 });
 
-const orderBtns = document.querySelectorAll('[data-car="report"]');
-orderBtns.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    window.location.href = './report.html';
-  });
+postBtn.addEventListener('click', () => {
+  window.location.href = 'postcar';
 });
+
+api
+  .getCars()
+  .then((data) => {
+    const carHandler = new CarHandler(data);
+    carHandler.onOrder((car) => {
+      window.location.href = `purchaseorder?car_id=${car.id}`;
+    });
+  })
+  .catch(err => console.error(err));

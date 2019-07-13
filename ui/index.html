@@ -11,14 +11,17 @@
   <body>
     <div class="heading-container">
       <div class="registration-container">
-        <a href="./signin.html">Sign in</a>
-        <a href="./signup.html">Sign Up</a>
+        <a data-logged="false" href="./signin.html">Sign in</a>
+        <a data-logged="false" href="./signup.html">Sign up</a>
+        <span data-username="text" data-logged="true">Username</span>
+        <a data-logged="true" data-link="logout" href="">Log out</a>
       </div>
+      <button data-button="post">Post Car</button>
       <img class="logo" src="images/logo.png" alt="auto mart" />
       <h1>View All Available Cars</h1>
     </div>
     <div class="content-container">
-      <form class="form-container">
+      <form data-filter="form" class="form-container">
         <div class="price-container">
           <input
             class="price-range"
@@ -51,112 +54,8 @@
         </div>
         <button type="submit">Filter</button>
       </form>
-      <div class="cars">
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
-          <img src="images/sample_car.png" alt="car photo" />
-          <h3 class="summary">Red Toyota Corolla 2010</h3>
-          <span class="description">
-            This car is strong, fresh, and robust. It still retains the new car
-            smell :-)
-          </span>
-          <span class="price">₦ 2,500,000.00</span>
-          <button data-car="order">view</button>
-          <a data-car="report" class="report">
-            <span>Report as fradulent</span>
-          </a>
-        </div>
-        <div class="card">
+      <div data-car="list" class="cars">
+        <div class="dummy card">
           <img src="images/sample_car.png" alt="car photo" />
           <h3 class="summary">Red Toyota Corolla 2010</h3>
           <span class="description">
@@ -171,6 +70,6 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
