@@ -4,6 +4,7 @@ const HOST = {
   production: 'https://automart-site.herokuapp.com',
 };
 const myHost = HOST.production;
+// const myHost = HOST.development;
 
 const myFetch = async (url, init = {}, form, isJson = true) => {
   const token = localStorage.getItem('token');
@@ -26,7 +27,7 @@ const myFetch = async (url, init = {}, form, isJson = true) => {
 };
 
 class Api {
-  constructor(host = myHost) {
+  constructor(host = `${myHost}/api/v1`) {
     this.host = host;
   }
 
