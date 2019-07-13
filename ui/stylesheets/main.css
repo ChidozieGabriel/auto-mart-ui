@@ -112,3 +112,6 @@ textarea {
 .dummy {
   display: none;
 }
+.flex-row {
+  display: flex;
+}
