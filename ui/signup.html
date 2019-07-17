@@ -4,52 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="stylesheets/main.css" />
-    <link rel="stylesheet" href="stylesheets/signup.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
     <title>Auto-Mart</title>
   </head>
   <body>
-    <div class="content">
-      <form data-form="form" class="form-container">
-        <img class="logo" src="images/logo.png" alt="Auto-Mart" />
-        <h1>Sign Up</h1>
-        <p>Please fill the form to register.</p>
-        <input
-          type="text"
-          name="firstname"
-          id="firstname"
-          placeholder="First name"
-        />
-        <input
-          type="text"
-          name="lastname"
-          id="lastname"
-          placeholder="Last name"
-        />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email address"
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-        />
-        <input
-          type="password"
-          name="repassword"
-          id="repassword"
-          placeholder="Confirm password"
-        />
-        <div class="error"></div>
-        <button type="submit">Sign Up</button>
-        <a href="signin.html">Already registered? Sign in</a>
-      </form>
+    <div class="container">
+      <div class="row">
+        <div class="third container"></div>
+        <div class="container center third">
+          <div
+            class="panel red display-container border center"
+            style="display: none"
+          >
+            <span
+              class="display-topright large button"
+              onclick="this.parentElement.style.display='none'"
+              >&times</span
+            >
+            <p data-error="text" class="margin">Error message</p>
+          </div>
+
+          <form data-form="form" class="form-container">
+            <img class="image" src="images/logo.png" alt="Auto-Mart" />
+            <h3 class="text-teal greyscale-min">
+              Please fill the form to register.
+            </h3>
+            <p>
+              <input
+                class="input border"
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="First name"
+              />
+            </p>
+            <p>
+              <input
+                class="input border"
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Last name"
+              />
+            </p>
+            <p>
+              <input
+                class="input border"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email address"
+              />
+            </p>
+            <p>
+              <input
+                class="input border"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+            </p>
+            <p>
+              <input
+                class="input border"
+                type="password"
+                name="repassword"
+                id="repassword"
+                placeholder="Confirm password"
+              />
+            </p>
+            <div class="error"></div>
+            <button class="button teal block" type="submit">
+              Sign Up
+            </button>
+            <br />
+            <a href="signin.html" class="button text-teal"
+              >Already registered? Sign in</a
+            >
+          </form>
+        </div>
+      </div>
     </div>
 
-    <script type="module" src="./scripts/signup.js"></script>
+    <script type="module" src="scripts/signup.js"></script>
   </body>
 </html>
