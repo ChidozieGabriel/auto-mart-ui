@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <title>Auto-Mart</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./stylesheets/w3.css" />
+  <link rel="stylesheet" href="./stylesheets/style.css" />
+  <body>
+    <div class="margin-top-64">
+      <div class="sidebar bar-block collapse">
+        <!-- <h3 class="center text-teal ">Filter</h3> -->
+        <form data-filter="form" class="form container">
+          <p>
+            <label class="text-grey" for="minPrice">Min. Price</label>
+            <input
+              class="input border"
+              type="number"
+              name="minPrice"
+              id="minPrice"
+              placeholder=""
+            />
+          </p>
+          <p>
+            <label class="text-grey" for="maxPrice">Max. Price</label>
+            <input
+              class="input border"
+              type="number"
+              name="maxPrice"
+              id="maxPrice"
+              placeholder=""
+            />
+          </p>
+          <p>
+            <label class="text-grey" for="manufacturer">Manufacturer</label>
+            <input
+              class="input border "
+              type="text"
+              name="manufacturer"
+              id="manufacturer"
+              placeholder="Toyota"
+            />
+          </p>
+          <p>
+            <label class="text-grey" for="model">Model</label>
+            <input
+              class="input border"
+              type="text"
+              name="model"
+              id="model"
+              placeholder="Corolla"
+            />
+          </p>
+          <div class="row">
+            <div class="half">
+              <input class="check" type="checkbox" name="state" id="new" />
+              <label for="new">New</label>
+            </div>
+            <div class="half">
+              <input class="check" type="checkbox" name="state" id="used" />
+              <label for="used">Used</label>
+            </div>
+          </div>
+          <p>
+            <button class="block teal btn" type="submit">
+              Filter
+            </button>
+          </p>
+        </form>
+      </div>
+
+      <div class="main margin-left-200">
+        <h1 data-admin="false" class="center teal greyscale-min">
+          Available Cars
+        </h1>
+        <h1 data-admin="true" class="center teal greyscale-min">
+          All Cars
+        </h1>
+        <div data-container="card" class="row-padding">
+          <div data-car="card" class="third margin-bottom">
+            <div class="card padding-all-8 center display-container">
+              <div class="display-topright display-hover">
+                <img
+                  data-admin="true"
+                  class="button hover-white"
+                  src="images/trash-can-outline.svg"
+                  alt=""
+                />
+              </div>
+              <img
+                data-car="image"
+                class="image fitImage"
+                src="images/sample_car.png"
+                alt="car photo"
+              />
+              <div class="container center">
+                <h4 data-car="summary" class="one-line">
+                  Red Toyota Corolla 2010
+                </h4>
+                <span data-car="description" class="one-line block">
+                  This car is strong, fresh, and robust. It still retains the
+                  new car smell :-)
+                </span>
+                <span data-car="price" class="block">₦ 2,500,000.00</span>
+                <button data-car="view" class="btn teal">view</button>
+                <!-- <a data-car="report" class="report btn">Report as fradulent</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/setNav.js"></script>
+    <script type="module" src="./scripts/setCars.js"></script>
+    <script type="module" src="./scripts/setView.js"></script>
+
+    <!-- <script src="./scripts/index.js"></script> -->
+  </body>
+</html>

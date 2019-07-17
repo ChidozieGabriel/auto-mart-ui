@@ -1,5 +1,6 @@
 import FormHandler from './utils/FormHandler.js';
 import Api from './utils/Api.js';
+import DOMHandler from './utils/DOMHandler.js';
 
 const api = new Api();
 const form = document.querySelector('[data-form="form"]');
@@ -9,12 +10,19 @@ formHandler.onSubmit((json) => {
     .signup(json)
     .then(() => {
       let redirect = document.referrer;
-      if (!redirect || redirect.toLowerCase().includes('signin')) {
+      if (!redirect) {
+        redirect = 'index';
+      }
+
+      if (redirect.toLowerCase().includes('signup') || redirect.toLowerCase().includes('signin')) {
         redirect = 'index';
       }
 
       window.location.href = redirect;
     })
-    .catch(err => console.log(err))
+    .catch((err) => {
+      console.log('ERR: ', err);
+      DOMHandler.setError(err);
+    })
     .finally(() => formHandler.disableSubmitBtn(false));
 });

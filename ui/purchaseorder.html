@@ -4,29 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="stylesheets/main.css">
-    <link rel="stylesheet" href="stylesheets/purchaseorder.css">
+    <link rel="stylesheet" href="stylesheets/main.css" />
+    <link rel="stylesheet" href="stylesheets/purchaseorder.css" />
     <title>Auto-Mart</title>
   </head>
   <body>
     <div class="heading-container">
-     <div class="registration-container">
-        <a href="./signin.html">Sign in</a>
-        <a href="./signup.html">Sign Up</a>
+      <img class="logo w1 h1" src="images/logo.png" alt="auto mart" />
+
+      <div class="registration-container">
+        <a data-logged="false" href="./signin.html">Sign in</a>
+        <a data-logged="false" href="./signup.html">Sign up</a>
+        <span data-username="text" data-logged="true">Username</span>
+        <a data-logged="true" data-link="logout" href="">Log out</a>
       </div>
-      <img class="logo" src="images/logo.png" alt="auto mart">
       <h1>Place Your Order</h1>
     </div>
     <div class="content">
       <div class="owner-container">
         <h2>Owner Info</h2>
         <table class="row">
-          <th class="th">Name:</span>
-          <td class="td">John Doe</span>
+          <th class="th">Name:</th>
+          <td data-owner="name" class="td">John Doe</td>
         </table>
         <table class="row">
-          <th class="th">Email:</span>
-          <td class="td">john@doe.com</span>
+          <th class="th">Email:</th>
+          <td data-owner="email" class="td">john@doe.com</td>
         </table>
       </div>
       <div class="car-container">
@@ -34,45 +37,57 @@
         <h2>Specifications</h2>
         <table>
           <tr>
-            <th>Make</th>
-            <td>Toyota</td>
+            <th>Manufacturer</th>
+            <td data-car="manufacturer">Toyota</td>
           </tr>
           <tr>
             <th>Model</th>
-            <td>Corolla</td>
+            <td data-car="model">Corolla</td>
           </tr>
           <tr>
             <th>Year</th>
-            <td>2010</td>
+            <td data-car="year">2010</td>
           </tr>
           <tr>
             <th>Color</th>
-            <td>Red</td>
+            <td data-car="color">Red</td>
           </tr>
           <tr>
             <th>Body Type</th>
-            <td>SUV</td>
+            <td data-car="bodytype">SUV</td>
           </tr>
           <tr>
             <th>Mileage</th>
-            <td>-</td>
+            <td data-car="mileage">-</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td>This car is strong, fresh, and robust. It still retains the new car
-            smell :-)</td>
+            <td data-car="description">
+              This car is strong, fresh, and robust. It still retains the new
+              car smell :-)
+            </td>
           </tr>
           <tr>
             <th>Price</th>
-            <td>₦ 2,500,000.00</td>
+            <td data-car="price">₦ 2,500,000.00</td>
           </tr>
         </table>
-        <form class="form-container">
+
+        <form data-form="form" class="form-container">
           <label for="bidprice"><h3>Bid Price (₦)</h3></label>
-          <input type="number" name="bidprice" id="bidprice" min="0" value="2350000" required />
+          <input
+            data-form="bidprice"
+            type="number"
+            name="price_offered"
+            id="price_offered"
+            min="0"
+            value="2350000"
+            required
+          />
           <button type="submit">Place order</button>
         </form>
       </div>
     </div>
+    <script type="module" src="./scripts/purchaseorder.js"></script>
   </body>
 </html>

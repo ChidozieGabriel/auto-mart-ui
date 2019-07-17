@@ -1,3 +1,5 @@
+import StoreHandler from './StoreHandler.js';
+
 const CONTENT_TYPE = { json: 'application/json; charset=UTF-8' };
 const HOST = {
   development: 'http://localhost:3000',
@@ -7,7 +9,7 @@ const myHost = HOST.production;
 // const myHost = HOST.development;
 
 const myFetch = async (url, init = {}, form, isJson = true) => {
-  const token = localStorage.getItem('token');
+  const token = StoreHandler.getToken();
   const headers = {
     Authorization: `Bearer ${token}`,
     Accept: CONTENT_TYPE.json,
@@ -35,16 +37,14 @@ class Api {
     const url = `${this.host}/auth/signup`;
     const init = { method: 'POST' };
     const data = await myFetch(url, init, form);
-    localStorage.setItem('user', JSON.stringify(data));
-    localStorage.setItem('token', data.token);
+    StoreHandler.setUser(JSON.stringify(data));
   }
 
   async signin(form) {
     const url = `${this.host}/auth/signin`;
     const init = { method: 'POST' };
     const data = await myFetch(url, init, form);
-    localStorage.setItem('user', JSON.stringify(data));
-    localStorage.setItem('token', data.token);
+    StoreHandler.setUser(JSON.stringify(data));
   }
 
   async getCars() {
@@ -53,6 +53,10 @@ class Api {
 
   async getCar(id) {
     return myFetch(`${this.host}/car/${id}`);
+  }
+
+  async getOrders(id) {
+    return myFetch(`${this.host}/order/${id}`);
   }
 
   async placeOrder(form) {
