@@ -9,11 +9,11 @@ const htmlString = `
       alt="logo"
     />
     <div class="right hide-small">
-      <div data-logged="false">
+      <span data-logged="false">
         <a href="signin" class="bar-item button">SIGN IN</a>
         <a href="signup" class="bar-item button">SIGN UP</a>
-      </div>
-      <div data-logged="true">
+      </span>
+      <span data-logged="true">
         <a href="" class="bar-item button hide"
           >ORDERS <span data-orders="number" class="badge teal">0</span></a
         >
@@ -25,8 +25,11 @@ const htmlString = `
         <!-- > -->
         <a href="" data-link="logout" class="bar-item button"
           >LOG OUT</a
+        >    
+      </span>
+      <a href="car" data-link="postcar" class="bar-item button teal"
+          >POST CAR</a
         >
-      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <title>Auto-Mart</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./stylesheets/style.css" />
+
+  <body>
+    <div class="margin-top-64 margin-bottom-48">
+      <form data-form="form" class="form container">
+        <h1 class="center teal  greyscale-min">Car Details</h1>
+        <div class="row-padding">
+          <div class="half">
+            <p>
+              <label class="text-grey" for="manufacturer"
+                >Manufacturer <span class="text-red">*</span></label
+              >
+              <input
+                class="input border"
+                type="text"
+                name="manufacturer"
+                id="manufacturer"
+                placeholder="e.g. Toyota"
+              />
+            </p>
+            <p>
+              <label class="text-grey" for="model"
+                >Model <span class="text-red">*</span></label
+              >
+              <input
+                class="input border"
+                type="text"
+                name="model"
+                id="model"
+                placeholder="e.g. Corolla"
+              />
+            </p>
+            <p>
+              <label class="text-grey" for="year"
+                >Year <span class="text-red">*</span></label
+              >
+              <input
+                class="input border"
+                type="number"
+                name="year"
+                id="year"
+                min="1800"
+                max="2019"
+                placeholder="e.g. 2010"
+              />
+            </p>
+            <p>
+              <label class="text-grey" for="color"
+                >Color <span class="text-red">*</span></label
+              >
+              <input
+                class="input border"
+                type="text"
+                name="color"
+                id="color"
+                placeholder="e.g. Red"
+              />
+            </p>
+            <p>
+              <label class="text-grey" for="bodytype">Body Type</label>
+              <input
+                class="input border"
+                type="text"
+                name="bodytype"
+                id="bodytype"
+                placeholder="e.g. Sedan"
+              />
+            </p>
+            <p>
+              <label class="text-grey" for="mileage">Mileage (km)</label>
+              <input
+                class="input border"
+                type="number"
+                name="mileage"
+                id="mileage"
+                placeholder="-- none --"
+              />
+            </p>
+          </div>
+          <div class="half">
+            <p>
+              <input
+                class="input border"
+                data-car="file"
+                type="file"
+                name="image"
+                id="image"
+              />
+              <img
+                data-car="image"
+                class="car-photo fitImage image"
+                style="height: auto"
+                src="images/sample_car.png"
+                alt="car photo"
+              />
+            </p>
+            <p>
+              <input type="radio" name="state" id="new" value="New" checked />
+              <label for="new">New</label>
+              <input type="radio" name="state" id="used" value="Used" />
+              <label for="used">Used</label>
+            </p>
+          </div>
+        </div>
+        <div class="row-padding">
+          <div class="half">
+            <p>
+              <label class="text-grey" for="description">Description</label>
+              <textarea
+                class="description input border"
+                name="description"
+                id="description"
+                cols="30"
+                rows="5"
+                placeholder="...describe your car here"
+                style="resize: none"
+              ></textarea>
+            </p>
+            <p>
+              <label class="text-grey" for="price"
+                >Price (₦) <span class="text-red">*</span></label
+              >
+              <input
+                class="car-price input border"
+                type="number"
+                name="price"
+                id="price"
+              />
+            </p>
+            <button class="block teal btn" type="submit">
+              Post Car
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script type="module" src="./scripts/setNav.js"></script>
+    <script type="module" src="./scripts/setView.js"></script>
+    <script type="module" src="./scripts/postcar.js"></script>
+  </body>
+</html>
