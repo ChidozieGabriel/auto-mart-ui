@@ -6,7 +6,7 @@ class OrderHandler extends FormHandler {
   constructor(car, form) {
     super(form);
     const {
-      id, manufacturer, model, price, color, bodyType, year, description,
+      id, manufacturer, model, price, color, bodyType, year, description, image_url,
     } = car;
     this.id = id;
     this.manufacturer = manufacturer;
@@ -16,6 +16,9 @@ class OrderHandler extends FormHandler {
     this.bodyType = bodyType || '-';
     this.year = year || '-';
     this.description = description || '-';
+    console.log('image', image_url);
+    this.image_url = image_url || 'images/sample_car.png';
+
     this.populateCar();
   }
 
@@ -27,6 +30,7 @@ class OrderHandler extends FormHandler {
     document.querySelector('[data-car="bodytype"]').textContent = this.bodyType;
     document.querySelector('[data-car="year"]').textContent = this.year;
     document.querySelector('[data-car="description"]').textContent = this.description;
+    document.querySelector('[data-car="image"]').setAttribute('src', this.image_url);
     const bidpriceElem = document.querySelector('[data-form="bidprice"]');
     bidpriceElem.value = Math.floor(this.price);
     return this;

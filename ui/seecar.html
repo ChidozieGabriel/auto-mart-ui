@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <title>Auto-Mart</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./stylesheets/style.css" />
+
+  <body>
+    <div class="margin-top-64 margin-bottom-48">
+      <h1 class="center teal greyscale-min">Car Specification</h1>
+      <div class="row-padding">
+        <div class="half">
+          <table class="table striped bordered">
+            <thead class="teal">
+              <th class="">Feature</th>
+              <td data-owner="email">Details</td>
+            </thead>
+            <tr>
+              <th class="text-teal">Manufacturer</th>
+              <td data-car="manufacturer">Toyota</td>
+            </tr>
+            <tr>
+              <th class="text-teal">Model</th>
+              <td data-car="model">Corolla</td>
+            </tr>
+            <tr>
+              <th class="text-teal">Year</th>
+              <td data-car="year">2010</td>
+            </tr>
+            <tr>
+              <th class="text-teal">Color</th>
+              <td data-car="color">Red</td>
+            </tr>
+            <tr>
+              <th class="text-teal">Body Type</th>
+              <td data-car="bodytype">SUV</td>
+            </tr>
+            <tr>
+              <th class="text-teal">Mileage</th>
+              <td data-car="mileage">-</td>
+            </tr>
+            <tr>
+              <th class="text-teal">Description</th>
+              <td data-car="description">
+                This car is strong, fresh, and robust. It still retains the new
+                car smell :-)
+              </td>
+            </tr>
+            <tr>
+              <th class="text-teal">Price</th>
+              <td data-car="price">₦ 2,500,000.00</td>
+            </tr>
+          </table>
+        </div>
+        <div class="half">
+          <img data-car="image" src="images/sample_car.png" alt="car image" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="half">
+          <form data-form="form" class="container form">
+            <p>
+              <label class="text-grey large" for="bidprice"
+                >Bid Price (₦)</label
+              >
+              <input
+                class="input border"
+                data-form="bidprice"
+                type="number"
+                name="price_offered"
+                id="price_offered"
+                min="0"
+                value="2350000"
+                required
+              />
+            </p>
+            <button class="block teal btn" type="submit">
+              Place Order
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/setNav.js"></script>
+    <script type="module" src="./scripts/setView.js"></script>
+    <script type="module" src="./scripts/setCar.js"></script>
+  </body>
+</html>
