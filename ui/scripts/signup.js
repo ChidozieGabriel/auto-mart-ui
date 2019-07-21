@@ -9,16 +9,7 @@ formHandler.onSubmit((json) => {
   api
     .signup(json)
     .then(() => {
-      let redirect = document.referrer;
-      if (!redirect) {
-        redirect = 'index';
-      }
-
-      if (redirect.toLowerCase().includes('signup') || redirect.toLowerCase().includes('signin')) {
-        redirect = 'index';
-      }
-
-      window.location.href = redirect;
+      DOMHandler.redirect();
     })
     .catch((err) => {
       console.log('ERR: ', err);

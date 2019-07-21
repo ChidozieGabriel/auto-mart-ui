@@ -27,7 +27,7 @@ class StoreHandler {
   }
 
   static isAdmin() {
-    return Boolean(StoreHandler.getUser().isAdmin);
+    return Boolean(StoreHandler.getUser().is_admin);
   }
 
   static setNumOfCars(num = 0) {

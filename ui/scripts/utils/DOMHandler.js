@@ -71,6 +71,24 @@ class DOMHandler {
     DOMHandler.setNumCars();
     DOMHandler.setNumOrders();
   }
+
+  static redirect(address) {
+    if (address) {
+      window.location.href = address;
+      return;
+    }
+
+    let redirect = document.referrer;
+    if (!redirect) {
+      redirect = 'carlist';
+    }
+
+    if (redirect.toLowerCase().includes('signup') || redirect.toLowerCase().includes('signin')) {
+      redirect = 'carlist';
+    }
+
+    window.location.href = redirect;
+  }
 }
 
 export default DOMHandler;

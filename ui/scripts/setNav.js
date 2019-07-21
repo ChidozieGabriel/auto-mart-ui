@@ -3,11 +3,14 @@ import Utils from './utils/Utils.js';
 const htmlString = `
 <div class="top">
   <div class="bar white card text-teal lh-50">
-    <img
-      class="h-50 hover-opacity image bar-item"
-      src="./images/logo.png"
-      alt="logo"
-    />
+    <a href="carlist" class="bar-item button">
+      <img
+        class="h-50 hover-opacity image bar-item"
+        src="./images/logo.png"
+        alt="logo"
+      />
+    </a>
+   
     <div class="right hide-small">
       <span data-logged="false">
         <a href="signin" class="bar-item button">SIGN IN</a>
