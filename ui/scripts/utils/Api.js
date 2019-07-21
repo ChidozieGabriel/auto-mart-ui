@@ -55,6 +55,11 @@ class Api {
     return myFetch(`${this.host}/car/${id}`);
   }
 
+  async deleteCar(id) {
+    const init = { method: 'DELETE' };
+    return myFetch(`${this.host}/car/${id}`, init);
+  }
+
   async getOrders(id) {
     return myFetch(`${this.host}/order/${id}`);
   }

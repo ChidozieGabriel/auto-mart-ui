@@ -8,11 +8,13 @@ const htmlString = `
     <div class="display-topright display-hover">
       <img
         data-admin="true"
+        data-car="delete"
         class="button hover-white"
         src="images/trash-can-outline.svg"
         alt=""
       />
     </div>
+
     <img
       data-car="image"
       class="image fitImage"
@@ -42,6 +44,7 @@ const getAttributes = () => {
   const description = node.querySelector('[data-car="description"]');
   const price = node.querySelector('[data-car="price"]');
   const viewBtn = node.querySelector('[data-car="view"]');
+  const deleteBtn = node.querySelector('[data-car="delete"]');
 
   return {
     node,
@@ -50,6 +53,7 @@ const getAttributes = () => {
     description,
     price,
     viewBtn,
+    deleteBtn,
   };
 };
 
@@ -61,7 +65,11 @@ class CarHandler {
   }
 
   onOrder(clickListener) {
-    this.clickListener = clickListener;
+    this.orderClickListener = clickListener;
+  }
+
+  onDelete(clickListener) {
+    this.deleteClickListener = clickListener;
   }
 
   populateCars() {
@@ -86,8 +94,14 @@ class CarHandler {
       attr.price.textContent = `₦ ${Utils.formatMoney(price)}`;
       attr.viewBtn.setAttribute('id', id);
       attr.viewBtn.addEventListener('click', () => {
-        if (this.clickListener) this.clickListener(car);
+        if (this.orderClickListener) this.orderClickListener(car);
       });
+
+      attr.deleteBtn.addEventListener('click', () => {
+        // display modal
+        if (this.deleteClickListener) this.deleteClickListener(car);
+      });
+
       this.parentNode.appendChild(attr.node);
     });
   }
