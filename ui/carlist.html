@@ -67,7 +67,7 @@
         </form>
       </div>
 
-      <div class="margin-left-200">
+      <div class="with-sidebar collapse">
         <h1 data-admin="false" class="center teal greyscale-min">
           Available Cars
         </h1>
@@ -81,6 +81,14 @@
                 <img
                   data-admin="true"
                   data-car="delete"
+                  class="button hover-white"
+                  src="images/trash-can-outline.svg"
+                  alt=""
+                />
+              </div>
+              <div class="display-topleft display-hover">
+                <img
+                  data-car="report"
                   class="button hover-white"
                   src="images/trash-can-outline.svg"
                   alt=""
@@ -111,18 +119,54 @@
       </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" data-modal="delete">
+    <!-- Modals -->
+    <form class="modal" data-modal="delete">
       <div class="modal-content">
         <div class="container center padding pale-red">
           <span data-close="true" class="button display-topright">&times;</span>
           <span>Delete this car?</span>
-          <button class="button red small center" data-confirm="true">
+          <button class="button red small center" type="submit">
             Yes
           </button>
         </div>
       </div>
-    </div>
+    </form>
+    <form class="modal" data-modal="report">
+      <div class="modal-content">
+        <div class="container center padding">
+          <span data-close="true" class="button display-topright">&times;</span>
+          <div class="form margin-top">
+            <h3 class="teal">Report Car</h3>
+            <p>
+              <label class="text-grey" for="reason"
+                >Reason<span class="text-red">*</span></label
+              >
+              <input
+                class="input border"
+                type="text"
+                name="reason"
+                id="reason"
+                placeholder="State your reason"
+              />
+            </p>
+            <p>
+              <label class="text-grey" for="description">Description</label>
+              <textarea
+                class="description input border"
+                name="description"
+                id="description"
+                cols="30"
+                rows="5"
+                placeholder="...explain your reason here"
+                style="resize: none"
+              ></textarea>
+            </p>
+          </div>
+
+          <button class="teal btn left" type="submit">Report</button>
+        </div>
+      </div>
+    </form>
 
     <script type="module" src="./scripts/setNav.js"></script>
     <script type="module" src="./scripts/setCars.js"></script>
