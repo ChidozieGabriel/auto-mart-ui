@@ -198,6 +198,12 @@ a {
   z-index: 1;
   overflow: auto;
 }
+.with-sidebar {
+  margin-left: 200px;
+}
+.with-sidebar-right {
+  margin-right: 200px;
+}
 .modal {
   z-index: 3;
   display: none;
@@ -219,6 +225,29 @@ a {
   outline: 0;
   width: 600px;
 }
+.bar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.bar .bar-item {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0;
+}
+.bar-block .bar-item {
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0;
+}
 .block {
   display: block;
   width: 100%;
@@ -232,7 +261,9 @@ a {
 .row-padding:after,
 .row-padding:before,
 .clear:after,
-.clear:before {
+.clear:before,
+.bar:after,
+.bar:before {
   content: '';
   display: table;
   clear: both;
@@ -251,6 +282,7 @@ a {
 .show {
   display: block !important;
 }
+/* Large and Medium screens */
 @media (min-width: 601px) {
   .quarter {
     width: 25%;
@@ -268,20 +300,18 @@ a {
     width: 75%;
   }
 }
+/* Small screens */
 @media (max-width: 600px) {
   .hide-small {
     display: none !important;
   }
-  .mobile {
-    display: block;
-    width: 100% !important;
-  }
   .fitImage {
     width: 100% !important;
-    height: auto;
+    height: auto !important;
     object-fit: cover;
   }
 }
+/* Large screens */
 @media (min-width: 993px) {
   .hide-large {
     display: none !important;
@@ -289,15 +319,25 @@ a {
   .sidebar.collapse {
     display: block !important;
   }
+  /* .with-sidebar {
+  } */
 }
+/* Medium screens */
 @media (max-width: 992px) and (min-width: 601px) {
   .hide-medium {
     display: none !important;
   }
 }
+/* Medium and Small screens */
 @media (max-width: 992px) {
   .sidebar.collapse {
     display: none;
+  }
+  .with-sidebar.collapse {
+    margin-left: 0;
+  }
+  .with-sidebar-right.collapse {
+    margin-right: 0;
   }
 }
 .top,

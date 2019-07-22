@@ -2,6 +2,7 @@ import CarHandler from './utils/CarHandler.js';
 import Api from './utils/Api.js';
 import DOMHandler from './utils/DOMHandler.js';
 import StoreHandler from './utils/StoreHandler.js';
+import ModalHandler from './utils/ModalHandler.js';
 
 const api = new Api();
 const cardContainer = document.querySelector('[data-container="card"]');
@@ -18,14 +19,8 @@ api
       console.log('delete moi? :-(', car);
       // Display modal
       const modal = document.querySelector('[data-modal="delete"]');
-      modal.style.display = 'block';
-      modal.querySelector('[data-close="true"]').addEventListener('click', () => {
-        // close modal
-        modal.style.display = 'none';
-      });
-
-      modal.querySelector('[data-confirm="true"]').addEventListener('click', () => {
-        // close modal
+      const modalHandler = new ModalHandler(modal);
+      modalHandler.onSubmit(() => {
         api
           .deleteCar(car.id)
           .then(() => {
@@ -33,6 +28,28 @@ api
           })
           .catch((err) => {
             console.error(err);
+          })
+          .finally(() => {
+            modalHandler.close();
+          });
+      });
+    });
+
+    carHandler.onReport((car) => {
+      console.log('reported');
+      const modal = document.querySelector('[data-modal="report"]');
+      const modalHandler = new ModalHandler(modal);
+      modalHandler.onSubmit((json) => {
+        api
+          .reportCar({ ...json, car_id: car.id })
+          .then(() => {
+            window.location.reload();
+          })
+          .catch((err) => {
+            console.error(err);
+          })
+          .finally(() => {
+            modalHandler.close();
           });
       });
     });

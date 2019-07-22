@@ -14,6 +14,15 @@ const htmlString = `
         alt=""
       />
     </div>
+    <div class="display-topleft display-hover">
+      <img
+        data-car="report"
+        class="button hover-white"
+        src="images/flag-outline.svg"
+        alt=""
+      />
+    </div>
+    
 
     <img
       data-car="image"
@@ -45,6 +54,7 @@ const getAttributes = () => {
   const price = node.querySelector('[data-car="price"]');
   const viewBtn = node.querySelector('[data-car="view"]');
   const deleteBtn = node.querySelector('[data-car="delete"]');
+  const reportBtn = node.querySelector('[data-car="report"]');
 
   return {
     node,
@@ -54,6 +64,7 @@ const getAttributes = () => {
     price,
     viewBtn,
     deleteBtn,
+    reportBtn,
   };
 };
 
@@ -70,6 +81,10 @@ class CarHandler {
 
   onDelete(clickListener) {
     this.deleteClickListener = clickListener;
+  }
+
+  onReport(clickListener) {
+    this.reportClickListener = clickListener;
   }
 
   populateCars() {
@@ -98,8 +113,11 @@ class CarHandler {
       });
 
       attr.deleteBtn.addEventListener('click', () => {
-        // display modal
         if (this.deleteClickListener) this.deleteClickListener(car);
+      });
+
+      attr.reportBtn.addEventListener('click', () => {
+        if (this.reportClickListener) this.reportClickListener(car);
       });
 
       this.parentNode.appendChild(attr.node);
